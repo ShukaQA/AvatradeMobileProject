@@ -2,47 +2,6 @@
   "scenarios": [
 
     {
-      "scenarioName": "France Registration",
-      "data": {
-        "registration": {
-          "password": "Password!123",
-          "firstName" : "France Name"
-        },
-
-        "personalDetails" : {
-          "lastName" : "France Surname",
-          "dateOfBirth" : "11121996",
-          "country" : "France",
-          "city" : "France City",
-          "street" : "France Street",
-          "streetNumber": "123",
-          "flat" : "France Flat",
-          "zipCode" : "1086",
-          "phoneNumber" : "1234567"
-        },
-
-        "financialDetails" : {
-          "primaryOccupation" : "Accountancy",
-          "currentlyEmployed" : "Employed",
-          "sourceOfTheFunds" : "Employment",
-          "estimatedAnnualIncome" : "100,000+",
-          "estimatedValue" : "500,000+",
-          "investAmount" : "100,000+"
-        },
-
-        "tradingExperience" : {
-          "tradingExperienceForex" : "0",
-          "averageTradeSize" : "0",
-          "tradingWithLeverage" : "It may increase profits or losses",
-          "tradingWithLeverageMaximum" : "$50,000",
-          "openPosition" : "The market is moving against my position and I don’t have enough equity to meet the margin requirement",
-          "tradeWithUs" : "Hedging of exposure to an underlying asset"
-        }
-
-      }
-    },
-
-    {
       "scenarioName": "Afghanistan Registration",
       "data": {
         "registration": {

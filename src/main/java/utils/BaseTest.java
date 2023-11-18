@@ -7,6 +7,7 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 import org.testng.annotations.BeforeMethod;
 import pages.LoginPage;
 import pages.SignUpPage;
+import pages.YourPersonalDataPage;
 
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -17,6 +18,7 @@ public abstract class BaseTest {
     protected static AppiumDriver<MobileElement> driver;
     protected LoginPage loginPage;
     protected SignUpPage signUpPage;
+    protected YourPersonalDataPage yourPersonalDataPage;
 
     @BeforeMethod
     public void preCondition() throws MalformedURLException {
@@ -34,5 +36,6 @@ public abstract class BaseTest {
 
         loginPage = new LoginPage(driver);
         signUpPage = new SignUpPage(driver);
+        yourPersonalDataPage = new YourPersonalDataPage(driver);
     }
 }
