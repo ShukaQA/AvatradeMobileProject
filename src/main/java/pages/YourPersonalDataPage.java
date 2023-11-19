@@ -27,19 +27,13 @@ public class YourPersonalDataPage {
     private final By phoneNumberInputPath = By.xpath("//android.view.View[@resource-id='question-4_245']//android.view.View[@text='Phone Number']/following-sibling::android.widget.EditText");
     private final By continueButtonPath = By.xpath("//android.widget.Button[@text='Continue']");
 
-    public void setFirstNameInput(String text) throws InterruptedException {
+    public void setFirstNameInput(String text) {
         WebElement element = wait.until(ExpectedConditions.elementToBeClickable(firstNameInputPath));
-        wait.until(ExpectedConditions.visibilityOf(element)).click();
-        Thread.sleep(500);
-        driver.hideKeyboard();
         wait.until(ExpectedConditions.visibilityOf(element)).sendKeys(text);
     }
 
-    public void setLastNameInput(String text) throws InterruptedException {
+    public void setLastNameInput(String text) {
         WebElement element = wait.until(ExpectedConditions.elementToBeClickable(lastNameInputPath));
-        wait.until(ExpectedConditions.visibilityOf(element)).click();
-        Thread.sleep(500);
-        driver.hideKeyboard();
         wait.until(ExpectedConditions.visibilityOf(element)).sendKeys(text);
     }
 
@@ -56,11 +50,8 @@ public class YourPersonalDataPage {
         driver.hideKeyboard();
     }
 
-    public void setPhoneNumberInput(String text) throws InterruptedException {
+    public void setPhoneNumberInput(String text) {
         WebElement element = wait.until(ExpectedConditions.elementToBeClickable(phoneNumberInputPath));
-        wait.until(ExpectedConditions.visibilityOf(element)).click();
-        Thread.sleep(500);
-        driver.hideKeyboard();
         wait.until(ExpectedConditions.visibilityOf(element)).sendKeys(text);
     }
 

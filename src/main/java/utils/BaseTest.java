@@ -5,10 +5,7 @@ import io.appium.java_client.MobileElement;
 import io.appium.java_client.remote.MobileCapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.testng.annotations.BeforeMethod;
-import pages.LoginPage;
-import pages.SignUpPage;
-import pages.YourPersonalDataPage;
-import pages.YourPersonalDetailsPage;
+import pages.*;
 
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -21,6 +18,9 @@ public abstract class BaseTest {
     protected SignUpPage signUpPage;
     protected YourPersonalDataPage yourPersonalDataPage;
     protected YourPersonalDetailsPage yourPersonalDetailsPage;
+    protected YourFinancialDetailsPage yourFinancialDetailsPage;
+    protected TermsAndConditionsPage termsAndConditionsPage;
+    protected AlmostTherePage almostTherePage;
 
     @BeforeMethod
     public void preCondition() throws MalformedURLException {
@@ -40,5 +40,8 @@ public abstract class BaseTest {
         signUpPage = new SignUpPage(driver);
         yourPersonalDataPage = new YourPersonalDataPage(driver);
         yourPersonalDetailsPage = new YourPersonalDetailsPage(driver);
+        yourFinancialDetailsPage = new YourFinancialDetailsPage(driver);
+        termsAndConditionsPage = new TermsAndConditionsPage(driver);
+        almostTherePage = new AlmostTherePage(driver);
     }
 }

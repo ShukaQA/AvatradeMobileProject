@@ -2,6 +2,7 @@ import com.github.javafaker.Faker;
 import models.DataPojo;
 import models.ScenarioPojo;
 import models.ScenariosPojo;
+import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import utils.BaseTest;
@@ -51,6 +52,20 @@ public class AfghanistanRegistrationTest extends BaseTest {
         yourPersonalDetailsPage.setApartmentInput(data.getPersonalDetails().getFlat());
         yourPersonalDetailsPage.setPostalCodeInput(data.getPersonalDetails().getZipCode());
         yourPersonalDataPage.clickContinueButton();
+
+        yourFinancialDetailsPage.setPrimaryOccupationDropdown(data.getFinancialDetails().getPrimaryOccupation());
+        yourFinancialDetailsPage.setEmploymentStatusDropdown(data.getFinancialDetails().getCurrentlyEmployed());
+        yourFinancialDetailsPage.setFundsSourceDropdown(data.getFinancialDetails().getSourceOfTheFunds());
+        yourFinancialDetailsPage.setEstimatedIncomeDropdown(data.getFinancialDetails().getEstimatedAnnualIncome());
+        yourPersonalDataPage.clickContinueButton();
+        yourFinancialDetailsPage.setEstimatedValueDropdown(data.getFinancialDetails().getEstimatedValue());
+        yourFinancialDetailsPage.setInvestAmountDropdownPath(data.getFinancialDetails().getInvestAmount());
+        yourPersonalDataPage.clickContinueButton();
+
+        termsAndConditionsPage.clickRadioButton();
+        termsAndConditionsPage.clickFinishButton();
+
+        Assert.assertEquals(almostTherePage.getFundAccountButtonText(), "Fund Your Account");
 
 
 
