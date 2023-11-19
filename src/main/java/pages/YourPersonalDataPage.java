@@ -7,8 +7,9 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
+import java.awt.*;
+
+import static utils.Utils.typeText;
 
 public class YourPersonalDataPage {
     private final AppiumDriver<MobileElement> driver;
@@ -21,12 +22,10 @@ public class YourPersonalDataPage {
     }
 
     private final By firstNameInputPath = By.xpath("//android.widget.EditText[@resource-id='question-1_247']");
-    public final By lastNameInputPath = By.xpath("//android.widget.EditText[@resource-id='question-2_248']");
-    public final By dayInputPath = By.xpath("//android.widget.EditText[@resource-id='date-day']");
-    public final By monthInputPath = By.xpath("//android.widget.EditText[@resource-id='date-month']");
-    public final By yearInputPath = By.xpath("//android.widget.EditText[@resource-id='date-year']");
-    public final By phoneNumberInputPath = By.xpath("//android.view.View[@resource-id='question-4_245']//android.view.View[@text='Phone Number']/following-sibling::android.widget.EditText");
-    public final By continueButtonPath = By.xpath("//android.widget.Button[@text='Continue']");
+    private final By lastNameInputPath = By.xpath("//android.widget.EditText[@resource-id='question-2_248']");
+    private final By dayInputPath = By.xpath("//android.widget.EditText[@resource-id='date-day']");
+    private final By phoneNumberInputPath = By.xpath("//android.view.View[@resource-id='question-4_245']//android.view.View[@text='Phone Number']/following-sibling::android.widget.EditText");
+    private final By continueButtonPath = By.xpath("//android.widget.Button[@text='Continue']");
 
     public void setFirstNameInput(String text) throws InterruptedException {
         WebElement element = wait.until(ExpectedConditions.elementToBeClickable(firstNameInputPath));
@@ -44,23 +43,16 @@ public class YourPersonalDataPage {
         wait.until(ExpectedConditions.visibilityOf(element)).sendKeys(text);
     }
 
-    public void setDateInput(String birthdate) throws InterruptedException {
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
-        LocalDate date = LocalDate.parse(birthdate, formatter);
-
+    public void setDateInput(String date)  {
         WebElement day = wait.until(ExpectedConditions.elementToBeClickable(dayInputPath));
-        WebElement month = wait.until(ExpectedConditions.elementToBeClickable(monthInputPath));
-        WebElement year = wait.until(ExpectedConditions.elementToBeClickable(yearInputPath));
 
-        Thread.sleep(800);
-        wait.until(ExpectedConditions.visibilityOf(day)).click();
-        day.sendKeys((String.valueOf(date.getDayOfMonth())));
-        wait.until(ExpectedConditions.visibilityOf(month)).click();
-        month.sendKeys(String.valueOf(date.getMonthValue()));
-        wait.until(ExpectedConditions.visibilityOf(year)).click();
-        year.sendKeys(String.valueOf(date.getYear()));
+        day.click();
+        try {
+            typeText(new Robot(), date);
+        } catch (AWTException e) {
+            e.printStackTrace();
+        }
 
-        Thread.sleep(800);
         driver.hideKeyboard();
     }
 

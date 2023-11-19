@@ -5,7 +5,8 @@
       "scenarioName": "Afghanistan Registration",
       "data": {
         "registration": {
-          "password": "Password!123",
+          "country" : "Afghanistan",
+          "password" : "Password!123",
           "firstName" : "Afghanistan Name"
         },
 

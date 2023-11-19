@@ -34,16 +34,25 @@ public class AfghanistanRegistrationTest extends BaseTest {
 
     public void fillRegistrationFormForAfghanistan(DataPojo data) throws InterruptedException {
         loginPage.clickRegisterButton();
-        signUpPage.setCountryInput("Afghanistan");
+        signUpPage.setCountryInput(data.getRegistration().getCountry());
         signUpPage.setMailInput(new Faker().internet().emailAddress());
         signUpPage.setPasswordInput(data.getRegistration().getPassword());
         signUpPage.clickCreateMyAccount();
 
         yourPersonalDataPage.setFirstNameInput(data.getPersonalDetails().getLastName());
         yourPersonalDataPage.setLastNameInput(data.getPersonalDetails().getLastName());
-        yourPersonalDataPage.setDateInput("11-11-1996");
+        yourPersonalDataPage.setDateInput(data.getPersonalDetails().getDateOfBirth());
         yourPersonalDataPage.setPhoneNumberInput(data.getPersonalDetails().getPhoneNumber());
         yourPersonalDataPage.clickContinueButton();
+
+        yourPersonalDetailsPage.setCityInput(data.getPersonalDetails().getCity());
+        yourPersonalDetailsPage.setStreetNameInput(data.getPersonalDetails().getStreet());
+        yourPersonalDetailsPage.setNumberInput(data.getPersonalDetails().getStreetNumber());
+        yourPersonalDetailsPage.setApartmentInput(data.getPersonalDetails().getFlat());
+        yourPersonalDetailsPage.setPostalCodeInput(data.getPersonalDetails().getZipCode());
+        yourPersonalDataPage.clickContinueButton();
+
+
 
     }
 }

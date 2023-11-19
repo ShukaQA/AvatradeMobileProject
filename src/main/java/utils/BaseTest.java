@@ -8,6 +8,7 @@ import org.testng.annotations.BeforeMethod;
 import pages.LoginPage;
 import pages.SignUpPage;
 import pages.YourPersonalDataPage;
+import pages.YourPersonalDetailsPage;
 
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -19,6 +20,7 @@ public abstract class BaseTest {
     protected LoginPage loginPage;
     protected SignUpPage signUpPage;
     protected YourPersonalDataPage yourPersonalDataPage;
+    protected YourPersonalDetailsPage yourPersonalDetailsPage;
 
     @BeforeMethod
     public void preCondition() throws MalformedURLException {
@@ -37,5 +39,6 @@ public abstract class BaseTest {
         loginPage = new LoginPage(driver);
         signUpPage = new SignUpPage(driver);
         yourPersonalDataPage = new YourPersonalDataPage(driver);
+        yourPersonalDetailsPage = new YourPersonalDetailsPage(driver);
     }
 }
